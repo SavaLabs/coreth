@@ -27,13 +27,13 @@
 package core
 
 import (
-	"github.com/ava-labs/coreth/consensus"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/state"
-	"github.com/ava-labs/coreth/core/state/snapshot"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/params"
+	"github.com/SavaLabs/coreth/consensus"
+	"github.com/SavaLabs/coreth/core/rawdb"
+	"github.com/SavaLabs/coreth/core/state"
+	"github.com/SavaLabs/coreth/core/state/snapshot"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/core/vm"
+	"github.com/SavaLabs/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/event"
 )

@@ -9,12 +9,12 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	safemath "github.com/ava-labs/avalanchego/utils/math"
+	safemath "github.com/SavaLabs/savannahnode/utils/math"
 
-	"github.com/ava-labs/coreth/constants"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/SavaLabs/coreth/constants"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/params"
+	"github.com/SavaLabs/coreth/trie"
 )
 
 var (

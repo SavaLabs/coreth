@@ -30,10 +30,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/coreth/consensus/dummy"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/params"
+	"github.com/SavaLabs/coreth/consensus/dummy"
+	"github.com/SavaLabs/coreth/core/rawdb"
+	"github.com/SavaLabs/coreth/core/vm"
+	"github.com/SavaLabs/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 )
 

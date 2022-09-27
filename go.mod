@@ -1,10 +1,10 @@
-module github.com/ava-labs/coreth
+module github.com/SavaLabs/coreth
 
 go 1.18
 
 require (
+	github.com/SavaLabs/savannahnode v1.8.5
 	github.com/VictoriaMetrics/fastcache v1.10.0
-	github.com/ava-labs/avalanchego v1.8.5
 	github.com/cespare/cp v0.1.0
 	github.com/davecgh/go-spew v1.1.1
 	github.com/deckarep/golang-set v1.8.0
@@ -124,3 +124,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/SavaLabs/savannahnode => ../savannahnode

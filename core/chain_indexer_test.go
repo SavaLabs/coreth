@@ -35,8 +35,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/types"
+	"github.com/SavaLabs/coreth/core/rawdb"
+	"github.com/SavaLabs/coreth/core/types"
 	"github.com/ethereum/go-ethereum/common"
 )
 

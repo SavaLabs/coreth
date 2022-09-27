@@ -9,13 +9,13 @@ import (
 
 	"github.com/ethereum/go-ethereum/log"
 
-	"github.com/ava-labs/avalanchego/api"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/utils/formatting"
-	"github.com/ava-labs/avalanchego/utils/rpc"
+	"github.com/SavaLabs/savannahnode/api"
+	"github.com/SavaLabs/savannahnode/ids"
+	"github.com/SavaLabs/savannahnode/utils/crypto"
+	"github.com/SavaLabs/savannahnode/utils/formatting"
+	"github.com/SavaLabs/savannahnode/utils/rpc"
 
-	cjson "github.com/ava-labs/avalanchego/utils/json"
+	cjson "github.com/SavaLabs/savannahnode/utils/json"
 )
 
 // Interface compliance

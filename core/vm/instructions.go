@@ -30,9 +30,9 @@ import (
 	"errors"
 	"sync/atomic"
 
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/vmerrs"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/params"
+	"github.com/SavaLabs/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/holiman/uint256"
 	"golang.org/x/crypto/sha3"

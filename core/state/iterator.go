@@ -30,8 +30,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"
 )

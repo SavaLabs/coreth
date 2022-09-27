@@ -28,11 +28,11 @@
 package miner
 
 import (
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
-	"github.com/ava-labs/coreth/consensus"
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/params"
+	"github.com/SavaLabs/savannahnode/utils/timer/mockable"
+	"github.com/SavaLabs/coreth/consensus"
+	"github.com/SavaLabs/coreth/core"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/event"
 )

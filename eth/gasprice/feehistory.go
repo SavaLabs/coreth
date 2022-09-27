@@ -33,8 +33,8 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/rpc"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/rpc"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
 )

@@ -33,10 +33,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ava-labs/coreth/accounts/abi"
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/eth/tracers"
-	"github.com/ava-labs/coreth/vmerrs"
+	"github.com/SavaLabs/coreth/accounts/abi"
+	"github.com/SavaLabs/coreth/core/vm"
+	"github.com/SavaLabs/coreth/eth/tracers"
+	"github.com/SavaLabs/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )

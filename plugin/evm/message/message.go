@@ -7,12 +7,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/codec"
+	"github.com/SavaLabs/savannahnode/codec"
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/SavaLabs/savannahnode/ids"
+	"github.com/SavaLabs/savannahnode/utils/units"
 )
 
 const (

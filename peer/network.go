@@ -14,14 +14,14 @@ import (
 
 	"github.com/ethereum/go-ethereum/log"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/validators"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/SavaLabs/savannahnode/codec"
+	"github.com/SavaLabs/savannahnode/ids"
+	"github.com/SavaLabs/savannahnode/snow/engine/common"
+	"github.com/SavaLabs/savannahnode/snow/validators"
+	"github.com/SavaLabs/savannahnode/version"
 
-	"github.com/ava-labs/coreth/peer/stats"
-	"github.com/ava-labs/coreth/plugin/evm/message"
+	"github.com/SavaLabs/coreth/peer/stats"
+	"github.com/SavaLabs/coreth/plugin/evm/message"
 )
 
 // Minimum amount of time to handle a request

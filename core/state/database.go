@@ -31,10 +31,10 @@ import (
 	"fmt"
 
 	"github.com/VictoriaMetrics/fastcache"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/ethdb"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/SavaLabs/coreth/core/rawdb"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/ethdb"
+	"github.com/SavaLabs/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
 	lru "github.com/hashicorp/golang-lru"
 )

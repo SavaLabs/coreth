@@ -9,12 +9,12 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/database/versiondb"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/SavaLabs/savannahnode/database/versiondb"
+	"github.com/SavaLabs/savannahnode/utils/wrappers"
 
-	"github.com/ava-labs/coreth/plugin/evm/message"
-	syncclient "github.com/ava-labs/coreth/sync/client"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/SavaLabs/coreth/plugin/evm/message"
+	syncclient "github.com/SavaLabs/coreth/sync/client"
+	"github.com/SavaLabs/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
 )
 

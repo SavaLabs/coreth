@@ -10,9 +10,9 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/coreth/accounts/keystore"
-	"github.com/ava-labs/coreth/core/types"
+	"github.com/SavaLabs/savannahnode/utils/wrappers"
+	"github.com/SavaLabs/coreth/accounts/keystore"
+	"github.com/SavaLabs/coreth/core/types"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"

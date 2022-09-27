@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/ulimit"
-	"github.com/ava-labs/avalanchego/vms/rpcchainvm"
+	"github.com/SavaLabs/savannahnode/utils/logging"
+	"github.com/SavaLabs/savannahnode/utils/ulimit"
+	"github.com/SavaLabs/savannahnode/vms/rpcchainvm"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/SavaLabs/coreth/plugin/evm"
 )
 
 func main() {

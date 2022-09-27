@@ -4,11 +4,11 @@
 package statesync
 
 import (
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/state/snapshot"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/ethdb"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/SavaLabs/coreth/core/rawdb"
+	"github.com/SavaLabs/coreth/core/state/snapshot"
+	"github.com/SavaLabs/coreth/core/types"
+	"github.com/SavaLabs/coreth/ethdb"
+	"github.com/SavaLabs/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
 )
 

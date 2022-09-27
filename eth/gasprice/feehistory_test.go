@@ -32,11 +32,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/core/types"
+	"github.com/SavaLabs/coreth/core"
+	"github.com/SavaLabs/coreth/core/types"
 
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/rpc"
+	"github.com/SavaLabs/coreth/params"
+	"github.com/SavaLabs/coreth/rpc"
 	"github.com/ethereum/go-ethereum/common"
 )
 

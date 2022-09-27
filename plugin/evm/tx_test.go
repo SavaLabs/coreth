@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/coreth/params"
+	"github.com/SavaLabs/savannahnode/chains/atomic"
+	"github.com/SavaLabs/savannahnode/snow"
+	"github.com/SavaLabs/coreth/params"
 	"github.com/stretchr/testify/require"
 )
 
