@@ -10,12 +10,12 @@ import (
 	"math/big"
 	"net/http"
 
+	"github.com/SavaLabs/coreth/params"
 	"github.com/SavaLabs/savannahnode/api"
 	"github.com/SavaLabs/savannahnode/ids"
 	"github.com/SavaLabs/savannahnode/utils/crypto"
 	"github.com/SavaLabs/savannahnode/utils/formatting"
 	"github.com/SavaLabs/savannahnode/utils/json"
-	"github.com/SavaLabs/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/log"
@@ -73,7 +73,7 @@ type AvaxAPI struct{ vm *VM }
 func (service *AvaxAPI) parseAssetID(assetID string) (ids.ID, error) {
 	if assetID == "" {
 		return ids.ID{}, fmt.Errorf("assetID is required")
-	} else if assetID == "AVAX" {
+	} else if assetID == "FUEL" {
 		return service.vm.ctx.AVAXAssetID, nil
 	} else {
 		return ids.FromString(assetID)
@@ -181,10 +181,10 @@ func (service *AvaxAPI) ImportAVAX(_ *http.Request, args *ImportArgs, response *
 	return service.Import(nil, args, response)
 }
 
-// Import issues a transaction to import AVAX from the X-chain. The AVAX
+// Import issues a transaction to import FUEL from the X-chain. The FUEL
 // must have already been exported from the X-Chain.
 func (service *AvaxAPI) Import(_ *http.Request, args *ImportArgs, response *api.JSONTxID) error {
-	log.Info("EVM: ImportAVAX called")
+	log.Info("EVM: ImportFUEL called")
 
 	chainID, err := service.vm.ctx.BCLookup.Lookup(args.SourceChain)
 	if err != nil {
@@ -242,12 +242,12 @@ type ExportAVAXArgs struct {
 	// Amount of asset to send
 	Amount json.Uint64 `json:"amount"`
 
-	// ID of the address that will receive the AVAX. This address includes the
+	// ID of the address that will receive the FUEL. This address includes the
 	// chainID, which is used to determine what the destination chain is.
 	To string `json:"to"`
 }
 
-// ExportAVAX exports AVAX from the C-Chain to the X-Chain
+// ExportAVAX exports FUEL from the C-Chain to the X-Chain
 // It must be imported on the X-Chain to complete the transfer
 func (service *AvaxAPI) ExportAVAX(_ *http.Request, args *ExportAVAXArgs, response *api.JSONTxID) error {
 	return service.Export(nil, &ExportArgs{

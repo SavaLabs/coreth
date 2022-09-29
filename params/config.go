@@ -43,6 +43,10 @@ var (
 	AvalancheMainnetChainID = big.NewInt(43114)
 	// AvalancheFujiChainID ...
 	AvalancheFujiChainID = big.NewInt(43113)
+	// AvalancheSavannahChainID ...
+	AvalancheSavannahChainID = big.NewInt(43004)
+	// AvalancheMarulaChainID ...
+	AvalancheMarulaChainID = big.NewInt(43003)
 	// AvalancheLocalChainID ...
 	AvalancheLocalChainID = big.NewInt(43112)
 
@@ -80,6 +84,59 @@ var (
 	// AvalancheFujiChainConfig is the configuration for the Fuji Test Network
 	AvalancheFujiChainConfig = &ChainConfig{
 		ChainID:                         AvalancheFujiChainID,
+		HomesteadBlock:                  big.NewInt(0),
+		DAOForkBlock:                    big.NewInt(0),
+		DAOForkSupport:                  true,
+		EIP150Block:                     big.NewInt(0),
+		EIP150Hash:                      common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
+		EIP155Block:                     big.NewInt(0),
+		EIP158Block:                     big.NewInt(0),
+		ByzantiumBlock:                  big.NewInt(0),
+		ConstantinopleBlock:             big.NewInt(0),
+		PetersburgBlock:                 big.NewInt(0),
+		IstanbulBlock:                   big.NewInt(0),
+		MuirGlacierBlock:                big.NewInt(0),
+		ApricotPhase1BlockTimestamp:     big.NewInt(time.Date(2021, time.March, 26, 14, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase2BlockTimestamp:     big.NewInt(time.Date(2021, time.May, 5, 14, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase3BlockTimestamp:     big.NewInt(time.Date(2021, time.August, 16, 19, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase4BlockTimestamp:     big.NewInt(time.Date(2021, time.September, 16, 21, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase5BlockTimestamp:     big.NewInt(time.Date(2021, time.November, 24, 15, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhasePre6BlockTimestamp:  big.NewInt(time.Date(2022, time.September, 6, 20, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase6BlockTimestamp:     big.NewInt(time.Date(2022, time.September, 6, 20, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhasePost6BlockTimestamp: big.NewInt(time.Date(2022, time.September, 7, 6, 0, 0, 0, time.UTC).Unix()),
+		// TODO Add Blueberry
+		// TODO Add Clementine
+	}
+
+	AvalancheSavannahChainConfig = &ChainConfig{
+		ChainID:                         AvalancheSavannahChainID,
+		HomesteadBlock:                  big.NewInt(0),
+		DAOForkBlock:                    big.NewInt(0),
+		DAOForkSupport:                  true,
+		EIP150Block:                     big.NewInt(0),
+		EIP150Hash:                      common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
+		EIP155Block:                     big.NewInt(0),
+		EIP158Block:                     big.NewInt(0),
+		ByzantiumBlock:                  big.NewInt(0),
+		ConstantinopleBlock:             big.NewInt(0),
+		PetersburgBlock:                 big.NewInt(0),
+		IstanbulBlock:                   big.NewInt(0),
+		MuirGlacierBlock:                big.NewInt(0),
+		ApricotPhase1BlockTimestamp:     big.NewInt(time.Date(2021, time.March, 31, 14, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase2BlockTimestamp:     big.NewInt(time.Date(2021, time.May, 10, 11, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase3BlockTimestamp:     big.NewInt(time.Date(2021, time.August, 24, 14, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase4BlockTimestamp:     big.NewInt(time.Date(2021, time.September, 22, 21, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhase5BlockTimestamp:     big.NewInt(time.Date(2021, time.December, 2, 18, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhasePre6BlockTimestamp:  big.NewInt(time.Date(2022, time.September, 5, 1, 30, 0, 0, time.UTC).Unix()),
+		ApricotPhase6BlockTimestamp:     big.NewInt(time.Date(2022, time.September, 6, 20, 0, 0, 0, time.UTC).Unix()),
+		ApricotPhasePost6BlockTimestamp: big.NewInt(time.Date(2022, time.September, 7, 3, 0, 0, 0, time.UTC).Unix()),
+		// TODO Add Blueberry
+		// TODO Add Clementine
+	}
+
+	// AvalancheFujiChainConfig is the configuration for the Fuji Test Network
+	AvalancheMarulaChainConfig = &ChainConfig{
+		ChainID:                         AvalancheMarulaChainID,
 		HomesteadBlock:                  big.NewInt(0),
 		DAOForkBlock:                    big.NewInt(0),
 		DAOForkSupport:                  true,

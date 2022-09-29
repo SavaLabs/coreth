@@ -28,8 +28,8 @@ import (
 var (
 	_                               UnsignedAtomicTx       = &UnsignedExportTx{}
 	_                               secp256k1fx.UnsignedTx = &UnsignedExportTx{}
-	errExportNonAVAXInputBlueberry                         = errors.New("export input cannot contain non-AVAX in Blueberry")
-	errExportNonAVAXOutputBlueberry                        = errors.New("export output cannot contain non-AVAX in Blueberry")
+	errExportNonAVAXInputBlueberry                         = errors.New("export input cannot contain non-FUEL in Blueberry")
+	errExportNonAVAXOutputBlueberry                        = errors.New("export output cannot contain non-FUEL in Blueberry")
 )
 
 // UnsignedExportTx is an unsigned ExportTx
@@ -306,7 +306,7 @@ func (vm *VM) newExportTx(
 		err                  error
 	)
 
-	// consume non-AVAX
+	// consume non-FUEL
 	if assetID != vm.ctx.AVAXAssetID {
 		ins, signers, err = vm.GetSpendableFunds(keys, assetID, amount)
 		if err != nil {
@@ -375,8 +375,8 @@ func (utx *UnsignedExportTx) EVMStateTransfer(ctx *snow.Context, state *state.St
 	addrs := map[[20]byte]uint64{}
 	for _, from := range utx.Ins {
 		if from.AssetID == ctx.AVAXAssetID {
-			log.Debug("crosschain", "dest", utx.DestinationChain, "addr", from.Address, "amount", from.Amount, "assetID", "AVAX")
-			// We multiply the input amount by x2cRate to convert AVAX back to the appropriate
+			log.Debug("crosschain", "dest", utx.DestinationChain, "addr", from.Address, "amount", from.Amount, "assetID", "FUEL")
+			// We multiply the input amount by x2cRate to convert FUEL back to the appropriate
 			// denomination before export.
 			amount := new(big.Int).Mul(
 				new(big.Int).SetUint64(from.Amount), x2cRate)

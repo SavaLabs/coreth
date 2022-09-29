@@ -156,7 +156,7 @@ func (tx *Tx) Sign(c codec.Manager, signers [][]*crypto.PrivateKeySECP256K1R) er
 	return nil
 }
 
-// BlockFeeContribution calculates how much AVAX towards the block fee contribution was paid
+// BlockFeeContribution calculates how much FUEL towards the block fee contribution was paid
 // for via this transaction denominated in [avaxAssetID] with [baseFee] used to calculate the
 // cost of this transaction. This function also returns the [gasUsed] by the
 // transaction for inclusion in the [baseFee] algorithm.
@@ -180,11 +180,11 @@ func (tx *Tx) BlockFeeContribution(fixedFee bool, avaxAssetID ids.ID, baseFee *b
 		return nil, nil, err
 	}
 	if txFee > burned {
-		return nil, nil, fmt.Errorf("insufficient AVAX burned (%d) to cover import tx fee (%d)", burned, txFee)
+		return nil, nil, fmt.Errorf("insufficient FUEL burned (%d) to cover import tx fee (%d)", burned, txFee)
 	}
 	excessBurned := burned - txFee
 
-	// Calculate the amount of AVAX that has been burned above the required fee denominated
+	// Calculate the amount of FUEL that has been burned above the required fee denominated
 	// in C-Chain native 18 decimal places
 	blockFeeContribution := new(big.Int).Mul(new(big.Int).SetUint64(excessBurned), x2cRate)
 	return blockFeeContribution, new(big.Int).SetUint64(gasUsed), nil
@@ -259,7 +259,7 @@ func IsSortedAndUniqueEVMOutputs(outputs []EVMOutput) bool {
 	return utils.IsSortedAndUnique(&innerSortEVMOutputs{outputs: outputs})
 }
 
-// calculates the amount of AVAX that must be burned by an atomic transaction
+// calculates the amount of FUEL that must be burned by an atomic transaction
 // that consumes [cost] at [baseFee].
 func calculateDynamicFee(cost uint64, baseFee *big.Int) (uint64, error) {
 	if baseFee == nil {

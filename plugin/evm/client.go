@@ -166,7 +166,7 @@ func (c *client) Import(ctx context.Context, user api.UserPass, to, sourceChain 
 	return res.TxID, err
 }
 
-// ExportAVAX sends AVAX from this chain to the address specified by [to].
+// ExportAVAX sends FUEL from this chain to the address specified by [to].
 // Returns the ID of the newly created atomic transaction
 func (c *client) ExportAVAX(
 	ctx context.Context,
@@ -174,11 +174,11 @@ func (c *client) ExportAVAX(
 	amount uint64,
 	to string,
 ) (ids.ID, error) {
-	return c.Export(ctx, user, amount, to, "AVAX")
+	return c.Export(ctx, user, amount, to, "FUEL")
 }
 
 // Export sends an asset from this chain to the P/C-Chain.
-// After this tx is accepted, the AVAX must be imported to the P/C-chain with an importTx.
+// After this tx is accepted, the FUEL must be imported to the P/C-chain with an importTx.
 // Returns the ID of the newly created atomic transaction
 func (c *client) Export(
 	ctx context.Context,

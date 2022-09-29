@@ -97,8 +97,8 @@ const (
 
 var (
 	// x2cRate is the conversion rate between the smallest denomination on the X-Chain
-	// 1 nAVAX and the smallest denomination on the C-Chain 1 wei. Where 1 nAVAX = 1 gWei.
-	// This is only required for AVAX because the denomination of 1 AVAX is 9 decimal
+	// 1 nFUEL and the smallest denomination on the C-Chain 1 wei. Where 1 nFUEL = 1 gWei.
+	// This is only required for FUEL because the denomination of 1 FUEL is 9 decimal
 	// places on the X and P chains, but is 18 decimal places within the EVM.
 	x2cRate       = big.NewInt(x2cRateInt64)
 	x2cRateMinus1 = big.NewInt(x2cRateMinus1Int64)
@@ -166,7 +166,7 @@ var (
 	errConflictingAtomicInputs        = errors.New("invalid block due to conflicting atomic inputs")
 	errUnclesUnsupported              = errors.New("uncles unsupported")
 	errRejectedParent                 = errors.New("rejected parent")
-	errInsufficientFundsForFee        = errors.New("insufficient AVAX funds to pay transaction fee")
+	errInsufficientFundsForFee        = errors.New("insufficient FUEL funds to pay transaction fee")
 	errNoEVMOutputs                   = errors.New("tx has no EVM outputs")
 	errNilBaseFeeApricotPhase3        = errors.New("nil base fee is invalid after apricotPhase3")
 	errNilExtDataGasUsedApricotPhase4 = errors.New("nil extDataGasUsed is invalid after apricotPhase4")
@@ -381,6 +381,12 @@ func (vm *VM) Initialize(
 	case g.Config.ChainID.Cmp(params.AvalancheFujiChainID) == 0:
 		g.Config = params.AvalancheFujiChainConfig
 		extDataHashes = fujiExtDataHashes
+	case g.Config.ChainID.Cmp(params.AvalancheSavannahChainID) == 0:
+		g.Config = params.AvalancheSavannahChainConfig
+		//extDataHashes = savannahExtDataHashes
+	case g.Config.ChainID.Cmp(params.AvalancheMarulaChainID) == 0:
+		g.Config = params.AvalancheMarulaChainConfig
+		//extDataHashes = marulaExtDataHashes
 	case g.Config.ChainID.Cmp(params.AvalancheLocalChainID) == 0:
 		g.Config = params.AvalancheLocalChainConfig
 	}
@@ -1144,7 +1150,7 @@ func (vm *VM) CreateHandlers() (map[string]*commonEng.HTTPHandler, error) {
 	apis := make(map[string]*commonEng.HTTPHandler)
 	avaxAPI, err := newHandler("avax", &AvaxAPI{vm})
 	if err != nil {
-		return nil, fmt.Errorf("failed to register service for AVAX API due to %w", err)
+		return nil, fmt.Errorf("failed to register service for FUEL API due to %w", err)
 	}
 	enabledAPIs = append(enabledAPIs, "avax")
 	apis[avaxEndpoint] = avaxAPI
@@ -1485,8 +1491,8 @@ func (vm *VM) GetSpendableFunds(
 		addr := GetEthAddress(key)
 		var balance uint64
 		if assetID == vm.ctx.AVAXAssetID {
-			// If the asset is AVAX, we divide by the x2cRate to convert back to the correct
-			// denomination of AVAX that can be exported.
+			// If the asset is FUEL, we divide by the x2cRate to convert back to the correct
+			// denomination of FUEL that can be exported.
 			balance = new(big.Int).Div(state.GetBalance(addr), x2cRate).Uint64()
 		} else {
 			balance = state.GetBalanceMultiCoin(addr, common.Hash(assetID)).Uint64()
@@ -1519,7 +1525,7 @@ func (vm *VM) GetSpendableFunds(
 }
 
 // GetSpendableAVAXWithFee returns a list of EVMInputs and keys (in corresponding
-// order) to total [amount] + [fee] of [AVAX] owned by [keys].
+// order) to total [amount] + [fee] of [FUEL] owned by [keys].
 // This function accounts for the added cost of the additional inputs needed to
 // create the transaction and makes sure to skip any keys with a balance that is
 // insufficient to cover the additional fee.
@@ -1572,8 +1578,8 @@ func (vm *VM) GetSpendableAVAXWithFee(
 		additionalFee := newFee - prevFee
 
 		addr := GetEthAddress(key)
-		// Since the asset is AVAX, we divide by the x2cRate to convert back to
-		// the correct denomination of AVAX that can be exported.
+		// Since the asset is FUEL, we divide by the x2cRate to convert back to
+		// the correct denomination of FUEL that can be exported.
 		balance := new(big.Int).Div(state.GetBalance(addr), x2cRate).Uint64()
 		// If the balance for [addr] is insufficient to cover the additional cost
 		// of adding an input to the transaction, skip adding the input altogether

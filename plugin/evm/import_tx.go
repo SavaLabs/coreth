@@ -26,8 +26,8 @@ import (
 var (
 	_                               UnsignedAtomicTx       = &UnsignedImportTx{}
 	_                               secp256k1fx.UnsignedTx = &UnsignedImportTx{}
-	errImportNonAVAXInputBlueberry                         = errors.New("import input cannot contain non-AVAX in Blueberry")
-	errImportNonAVAXOutputBlueberry                        = errors.New("import output cannot contain non-AVAX in Blueberry")
+	errImportNonAVAXInputBlueberry                         = errors.New("import input cannot contain non-FUEL in Blueberry")
+	errImportNonAVAXOutputBlueberry                        = errors.New("import output cannot contain non-FUEL in Blueberry")
 )
 
 // UnsignedImportTx is an unsigned ImportTx
@@ -331,7 +331,7 @@ func (vm *VM) newImportTxWithUTXOs(
 	// This will create unique outputs (in the context of sorting)
 	// since each output will have a unique assetID
 	for assetID, amount := range importedAmount {
-		// Skip the AVAX amount since it is included separately to account for
+		// Skip the FUEL amount since it is included separately to account for
 		// the fee
 		if assetID == vm.ctx.AVAXAssetID || amount == 0 {
 			continue
@@ -399,7 +399,7 @@ func (vm *VM) newImportTxWithUTXOs(
 	}
 
 	// If no outputs are produced, return an error.
-	// Note: this can happen if there is exactly enough AVAX to pay the
+	// Note: this can happen if there is exactly enough FUEL to pay the
 	// transaction fee, but no other funds to be imported.
 	if len(outs) == 0 {
 		return nil, errNoEVMOutputs
@@ -427,8 +427,8 @@ func (vm *VM) newImportTxWithUTXOs(
 func (utx *UnsignedImportTx) EVMStateTransfer(ctx *snow.Context, state *state.StateDB) error {
 	for _, to := range utx.Outs {
 		if to.AssetID == ctx.AVAXAssetID {
-			log.Debug("crosschain", "src", utx.SourceChain, "addr", to.Address, "amount", to.Amount, "assetID", "AVAX")
-			// If the asset is AVAX, convert the input amount in nAVAX to gWei by
+			log.Debug("crosschain", "src", utx.SourceChain, "addr", to.Address, "amount", to.Amount, "assetID", "FUEL")
+			// If the asset is FUEL, convert the input amount in nFUEL to gWei by
 			// multiplying by the x2c rate.
 			amount := new(big.Int).Mul(
 				new(big.Int).SetUint64(to.Amount), x2cRate)
